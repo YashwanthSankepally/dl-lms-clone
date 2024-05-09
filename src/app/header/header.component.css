@@ -1,0 +1,33 @@
+.lms-navbar-bg {
+    background-color: #ffffff;
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+    height: 4.375rem;
+}
+
+.first-alpha-circle {
+    background-color: darkslateblue;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lms-dropdown {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.lms-user-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lms-dropdown-profile {
+    background-color: #ffffff;
+}

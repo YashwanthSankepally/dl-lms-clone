@@ -1,0 +1,23 @@
+.lms-welcome-screen {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lms-wallpaper-screen {
+    height: 100vh;
+    background-image: url("https://img.freepik.com/premium-photo/vertical-background-image-minimal-home-office-workplace-with-laptop-accessories-black-white-copy-space_236854-27485.jpg");
+    background-size: cover;
+}
+
+.lms-welcome-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.lms-welcome-div img {
+    margin-bottom: 20px; /* Adjust as needed for spacing */
+}
