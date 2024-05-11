@@ -23,15 +23,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.login(this.form.value).subscribe(
-      () => {
-        this.router.navigate(['dashboard']);
-      },
-      (error) => {
-        console.error(error);
-        // Handle error (e.g., show error message)
-      }
-    );
+    // this.authService.login(this.form.value).subscribe(
+    //   () => {
+    //     this.router.navigate(['dashboard']);
+    //   },
+    //   (error) => {
+    //     console.error(error);
+    //     // Handle error (e.g., show error message)
+    //   }
+    // );
+    this.router.navigate(['dashboard']);
   }
 
   forgotPassword() {
