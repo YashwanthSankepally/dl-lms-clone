@@ -11,6 +11,7 @@ export class WelcomeComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+    // window.alert("This website may be useful for you, but it hasn't received any updates for the future. This is the final version.");
   }
 
   login() {

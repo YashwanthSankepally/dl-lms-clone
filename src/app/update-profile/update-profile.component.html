@@ -1,3 +1,75 @@
 <app-header></app-header>
 
-<p>update-profile works!</p>
+<section class="lms-center-div">
+    <div class="form-field-card">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <mat-form-field class="mat-form-field" appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Enter your name" formControlName="name">
+                <!-- <mat-icon matSuffix>name</mat-icon> -->
+                <!-- <mat-hint>Your registered email address</mat-hint>
+                <mat-error *ngIf="form.controls['name'].hasError('required')">
+                    Email is required.
+                </mat-error>
+                <mat-error *ngIf="form.controls['name'].hasError('name')">
+                    Please enter a valid name.
+                </mat-error> -->
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field" appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Enter your email" formControlName="email">
+                <mat-icon matSuffix>email</mat-icon>
+                <mat-hint>Your registered email address</mat-hint>
+                <mat-error *ngIf="form.controls['email'].hasError('required')">
+                    Email is required.
+                </mat-error>
+                <mat-error *ngIf="form.controls['email'].hasError('email')">
+                    Please enter a valid email.
+                </mat-error>
+            </mat-form-field>
+
+            <!-- <mat-form-field class="mat-form-field" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter your password" formControlName="password">
+                <button mat-icon-button matSuffix (click)="toggleHide()" [attr.aria-label]="'Hide password'" type="button">
+                    <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+                <mat-hint>At least 8 characters</mat-hint>
+                <mat-error *ngIf="form.controls['password'].hasError('required')">
+                    Password is required.
+                </mat-error>
+                <mat-error *ngIf="form.controls['password'].hasError('minLength')">
+                    Password must be at least 8 characters long.
+                </mat-error>
+            </mat-form-field> -->
+            <!-- <a href="javascript:void(0)" class="text-primary" (click)="forgotPassword()">forgot password</a> -->
+
+            <mat-form-field style="width: 100%;">
+                <mat-label>File matInput</mat-label>
+                <button mat-icon-button matPrefix (click)="f_input.click()">
+            <mat-icon>attach_file</mat-icon>
+          </button>
+                <input type="text" readonly matInput [formControl]="display" />
+                <input
+            type="file"
+            multiple
+            hidden
+            #f_input
+            (change)="handleFileInputChange(f_input.files)"
+          />
+                <mat-error>this field is required</mat-error>
+            </mat-form-field>
+
+            <div class="d-flex flex-column justify-content-center">
+                
+                <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
+                    Update Profile image
+                </button>
+            </div>
+
+            
+        </form>
+    </div>
+</section>

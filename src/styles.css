@@ -3,7 +3,7 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.lms-g-cursor {
+.lms-g-cp {
     cursor: pointer;
 }
 
@@ -25,3 +25,36 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     height: 75%;
     border-radius: 8px;
 }
+
+.lms-sidebar-container, .lms-mat-tabs {
+    padding: 10px;
+}
+
+.lms-btn:hover, .lms-btn:active {
+    background-color: #228be6;
+    color: #ffffff;
+}
+
+.video-selected {
+    color: #ffffff;
+    /* font-weight: bolder; */
+    background-color: #0057b8;
+}
+
+/* Webkit (Chrome, Safari, etc.) scrollbar */
+/* Track */
+::-webkit-scrollbar {
+    width: 6px; /* Width of the scrollbar */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar handle */
+    border-radius: 5px; /* Border radius of the handle */
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the handle when hovered */
+  }
+  

@@ -1,0 +1,46 @@
+.main-container {
+    display: flex;
+    align-items: start; /* Aligns items at the start of the container */
+    justify-content: space-around; /* Spreads items with space around them */
+    padding: 20px;
+}
+
+.lms-sidebar-container {
+    flex: 1; /* Allows accordion to grow and take necessary space */
+}
+
+.tabs-container, .no-video-selected {
+    flex: 2; /* Video area takes twice the space of accordion */
+    padding: 20px; /* Optional: Adds some space around the video */
+}
+
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+    color:#ffffff;
+    background-color: #0d6efd;
+    }
+    
+::ng-deep .mat-tab-list .mat-tab-labels {
+    color: #ffffff !important;
+    background-color: white ;
+}
+
+.no-video-selected {
+    position: relative;
+    display: inline-block; /* Ensure container size fits the content */
+}
+  
+.overlay {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+  
+.overlay p {
+    margin: 0;
+}
+  

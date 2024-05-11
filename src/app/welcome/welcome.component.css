@@ -6,7 +6,7 @@
 
 .lms-wallpaper-screen {
     height: 100vh;
-    background-image: url("https://img.freepik.com/premium-photo/vertical-background-image-minimal-home-office-workplace-with-laptop-accessories-black-white-copy-space_236854-27485.jpg");
+    background-image: url("../../assets/welcome.jpg");
     background-size: cover;
 }
 

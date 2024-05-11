@@ -1,0 +1,8 @@
+.lms-center-div {
+    background-color: #ffffff;
+}
+
+.mat-form-field {
+    display: flex;
+    flex-direction: column;
+}

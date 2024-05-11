@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.router.navigate(['sign-in']);
+    this.router.navigate(['']);
   }
 
   updateProfile() {

@@ -25,7 +25,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   goTo() {
-    this.router.navigate(['dashboard'])
+    this.router.navigate(['sign-in']);
   }
 
 }

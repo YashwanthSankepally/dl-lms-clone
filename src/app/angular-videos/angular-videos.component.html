@@ -1,22 +1,203 @@
 <app-header class="mb-1"></app-header>
 
-<div class="sidebar-container">
-    <mat-accordion>
-        <mat-expansion-panel hideToggle style="max-width: 300px">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    HTML & CSS
-                </mat-panel-title>
-                <!-- <mat-panel-description>
-                    This is a summary of the content
-                </mat-panel-description> -->
-            </mat-expansion-panel-header>
-            <div class="bg-primary lms-g-cursor text-white p-1">
-                Class 1
+<div class="main-container">
+  <div class="lms-sidebar-container">
+      <div class="accordion accordion-flush" id="accordionFlushExample" style="max-width:300px; overflow-y: scroll; height: 500px;">
+        <h1>Angular</h1>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                1. Angular Introduction
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div *ngFor="let item of angularIntroduction" 
+              [class.video-selected]="item.videoURL === selectedVideoUrl" 
+              class="accordion-body lms-btn lms-g-cp"
+              (click)="selectClass(item)" 
+              (keydown.enter)="selectClass(item)" tabindex="0" role="button">
+                <span> {{item.videoTitle}} </span>
+              </div>
             </div>
-            <div class="bg-primary lms-g-cursor text-white p-1">
-                Class 1
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                2. Data Binding
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div *ngFor="let item of dataBinding" [class.video-selected]="item.videoURL === selectedVideoUrl" class="accordion-body lms-btn lms-g-cp"
+              (click)="selectClass(item)" (keydown.enter)="selectClass(item)" tabindex="0" role="button">
+                <span> {{item.videoTitle}} </span>
+              </div>
             </div>
-        </mat-expansion-panel>
-    </mat-accordion>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                3. Directives And Pipes
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <div *ngFor="let item of DirectivesAndPipes" [class.video-selected]="item.videoURL === selectedVideoUrl" class="accordion-body lms-btn lms-g-cp"
+              (click)="selectClass(item)" (keydown.enter)="selectClass(item)" tabindex="0" role="button">
+                <span> {{item.videoTitle}} </span>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseThree">
+                4. Decorators
+              </button>
+            </h2>
+            <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <div *ngFor="let item of Decorators" [class.video-selected]="item.videoURL === selectedVideoUrl" class="accordion-body lms-btn lms-g-cp"
+              (click)="selectClass(item)" (keydown.enter)="selectClass(item)" tabindex="0" role="button">
+                <span> {{item.videoTitle}} </span>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseThree">
+                5. Routes and Services
+              </button>
+            </h2>
+            <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <div *ngFor="let item of RoutesAndServices" [class.video-selected]="item.videoURL === selectedVideoUrl" class="accordion-body lms-btn lms-g-cp"
+              (click)="selectClass(item)" (keydown.enter)="selectClass(item)" tabindex="0" role="button">
+                <span> {{item.videoTitle}} </span>
+              </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+  </div>
+
+  <div class="no-video-selected" *ngIf="!selectedVideoUrl">
+    <img src="../../assets/undraw_Playlist_re_1oed_df9f79cf85.png" alt="no video selected background image">
+    <div class="overlay">
+      <p class="text-primary">
+        <i class="fa-solid fa-hand-pointer me-2"></i> <strong>Select a topic to view a video.</strong>
+      </p>
+    </div>
+  </div>
+
+  <div class="tabs-container" *ngIf="displayTabs">
+    <mat-tab-group>
+      <mat-tab tabindex="0"> 
+        <ng-template mat-tab-label>
+          <i class="fa-solid fa-video me-2"></i>
+          <mat-label>Video</mat-label>
+        </ng-template>
+        <div class="video-display-area" *ngIf="selectedVideoUrl">
+          <iframe [attr.aria-label]="selectedVideoTitle" [src]="sanitizedUrl(selectedVideoUrl)" width="1000" height="500" frameborder="0" allowfullscreen
+          
+          ></iframe>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <i class="fa-solid fa-book-open me-2"></i>
+                <mat-label>Notes</mat-label>
+        </ng-template>
+        <div class="p-1" style="width: 1000px;">
+          <h1> <i class="fa-regular fa-face-meh"></i> No notes available!</h1>
+        </div>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <i class="fa-solid fa-paperclip me-2"></i>
+          <mat-label>Resources</mat-label>
+        </ng-template>
+        <div class="p-1" style="width: 1000px;">
+            <h1> <i class="fa-regular fa-face-meh"></i> No resources available now</h1>
+        </div>
+      </mat-tab>
+      <!-- <mat-tab>
+        <ng-template mat-tab-label>
+          <i class="fa-solid fa-comment me-2"></i>
+          <mat-label>Comment</mat-label>
+        </ng-template>
+        <div class="p-1">
+            <h1> <i class="fa-solid fa-comment-dots"></i> Comment section coming soon!</h1>
+        </div>
+      </mat-tab> -->
+    </mat-tab-group>
+  </div>
+  
+
+</div>
+
+<div class="p-1">
+    <mat-tab-group> 
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <i class="bi bi-book me-2"></i>
+                <mat-label>Course info</mat-label>
+            </ng-template>
+            <div class="p-3">
+                <h1>Angular -2401 9:30 AM Sai Kumar</h1>
+                <p>
+                  This practical, hands-on course offers a comprehensive exploration into the essential components of web development: HTML, CSS, and JavaScript. 
+                  Students will learn to structure content with HTML, style and design websites with CSS, and enhance user interaction with JavaScript. 
+                  The course emphasizes responsive design and best practices, suitable for beginners and those looking to refresh their skills. 
+                  Become proficient in building dynamic, interactive websites tailored for diverse devices and user needs.
+                </p>
+                
+            </div>
+        </mat-tab>
+        <!-- <mat-tab>
+            <ng-template mat-tab-label>
+                <i class="bi bi-cpu me-2"></i>
+                <mat-label>Ask AI</mat-label>
+            </ng-template>
+            <div class="p-1">
+                <h1>feature coming soon!</h1>
+            </div>
+        </mat-tab> -->
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <i class="fa-solid fa-paperclip me-2"></i>
+                <mat-label>Resources</mat-label>
+            </ng-template>
+            <div class="p-1">
+                <h1> <i class="fa-solid fa-laptop-file"></i> Use this resources for practice</h1>
+                <div>
+                  <ol>
+                    <li>
+                      <a href="https://code.visualstudio.com/download" target="_blank">VS Code download</a>
+                    </li>
+                    <li>
+                      <a href="https://www.w3schools.com/" target="_blank">W3Schools Online Web Tutorials</a>
+                    </li>
+                  </ol>
+                </div>
+                
+            </div>
+        </mat-tab>
+        <mat-tab>
+            <ng-template mat-tab-label>
+                <i class="fa-regular fa-file-code me-2"></i>
+                <mat-label>Projects</mat-label>
+            </ng-template>
+            <div class="p-1">
+                <h1 style="color: black;"> 😑 No projects now.</h1>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+    
 </div>
