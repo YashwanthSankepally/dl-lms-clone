@@ -2,6 +2,8 @@
 
 <section class="lms-center-div">
     <div class="form-field-card">
+
+        <h1> Update profile feature is not available yet! </h1>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
             <mat-form-field class="mat-form-field" appearance="outline">
@@ -30,23 +32,7 @@
                 </mat-error>
             </mat-form-field>
 
-            <!-- <mat-form-field class="mat-form-field" appearance="outline">
-                <mat-label>Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter your password" formControlName="password">
-                <button mat-icon-button matSuffix (click)="toggleHide()" [attr.aria-label]="'Hide password'" type="button">
-                    <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
-                </button>
-                <mat-hint>At least 8 characters</mat-hint>
-                <mat-error *ngIf="form.controls['password'].hasError('required')">
-                    Password is required.
-                </mat-error>
-                <mat-error *ngIf="form.controls['password'].hasError('minLength')">
-                    Password must be at least 8 characters long.
-                </mat-error>
-            </mat-form-field> -->
-            <!-- <a href="javascript:void(0)" class="text-primary" (click)="forgotPassword()">forgot password</a> -->
-
-            <mat-form-field style="width: 100%;">
+            <!-- <mat-form-field style="width: 100%;">
                 <mat-label>File matInput</mat-label>
                 <button mat-icon-button matPrefix (click)="f_input.click()">
             <mat-icon>attach_file</mat-icon>
@@ -60,7 +46,9 @@
             (change)="handleFileInputChange(f_input.files)"
           />
                 <mat-error>this field is required</mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
+
+            <input type='file' accept="image" style="margin-top: 2rem;">
 
             <div class="d-flex flex-column justify-content-center">
                 

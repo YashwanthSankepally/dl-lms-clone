@@ -21,6 +21,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { AdminComponent } from './admin/admin.component';
+import { ChatBotComponent } from './chat-bot/chat-bot.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     AngularVideosComponent,
     FundamentalsComponent,
     UpdateProfileComponent,
+    AdminComponent,
+    ChatBotComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatExpansionModule,
     MatTabsModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

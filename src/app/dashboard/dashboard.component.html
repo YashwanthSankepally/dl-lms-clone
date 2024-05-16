@@ -5,7 +5,7 @@
         <!-- This div only for background image. No code needed here. -->
     </div>
     <div class="lms-dashboard-container">
-        <h1>Your Courses</h1>
+        <h1 style="position: sticky; right: 79%;">Your Courses</h1>
 
         <!-- web development basics card starts here -->
         <div class="card mb-3" style="max-width: 80%;">
@@ -22,7 +22,7 @@
             </div>
             <div class="col-md-3">
               <div class="card-body lms-btn-card">
-                  <button class="btn btn-primary m-1" (click)="fundamentals()"> Continue <span><i class="bi bi-arrow-right"></i></span> </button>
+                  <button class="btn btn-primary m-1" (click)="fundamentals()" aria-label="Continue to fundamentals (HTML, CSS and JS) page"> Continue <span><i class="bi bi-arrow-right"></i></span> </button>
                   <button class="btn btn-outline-dark m-1" disabled="disabled">Live Classes</button>
               </div>
             </div>
@@ -45,7 +45,7 @@
               </div>
               <div class="col-md-3">
                 <div class="card-body lms-btn-card">
-                    <button class="btn btn-primary m-1" (click)="angularVideos()"> Continue <span><i class="bi bi-arrow-right"></i></span> </button>
+                    <button class="btn btn-primary m-1" (click)="angularVideos()" aria-label="Go to Angular class component"> Continue <span><i class="bi bi-arrow-right"></i></span> </button>
                     <button class="btn btn-outline-dark m-1" disabled="disabled">Live Classes</button>
                 </div>
               </div>

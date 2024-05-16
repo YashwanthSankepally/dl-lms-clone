@@ -23,16 +23,16 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.authService.login(this.form.value).subscribe(
-    //   () => {
-    //     this.router.navigate(['dashboard']);
-    //   },
-    //   (error) => {
-    //     console.error(error);
-    //     // Handle error (e.g., show error message)
-    //   }
-    // );
-    this.router.navigate(['dashboard']);
+    if (this.form.valid) {
+      const email = this.form.get('email')?.value ?? ''; // Default to empty string if null
+      const password = this.form.get('password')?.value ?? ''; // Default to empty string if null
+      localStorage.setItem('userEmail', email);
+      localStorage.setItem('userPassword', password); // Note on security as mentioned before
+  
+      this.router.navigate(['dashboard']);
+    } else {
+      this.form.markAllAsTouched(); // Show form validation errors
+    }
   }
 
   forgotPassword() {

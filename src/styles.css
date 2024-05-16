@@ -57,4 +57,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   ::-webkit-scrollbar-thumb:hover {
     background: #555; /* Color of the handle when hovered */
   }
+
+  .accordion-button::after {
+    background-image: initial;
+  }
   
+  .accordion-button:not(.collapsed)::after {
+    background-image: initial;
+  }

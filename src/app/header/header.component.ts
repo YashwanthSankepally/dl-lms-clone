@@ -7,16 +7,30 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  userName:string = 'johndoe@gmail.com'
-  userEmail:string = 'johndoe@gmail.com'
-  firstLetters:string = 'JD'
+  userName:string = ''
+  userEmail:string = ''
+  firstLetters:string = ''
+  userProfileImage: string | File = 'path/to/default/image';
 
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+    this.userEmail = localStorage.getItem('userEmail') || '';
+    this.userName = this.userEmail; // Assuming userName is the email for simplicity
+    this.firstLetters = this.getUserNameInitials(this.userEmail);
+  }
+
+  getUserNameInitials(email: string): string {
+    return email
+      .split(' ')
+      .map(part => part[0])
+      .join('')
+      .toUpperCase();
   }
 
   logout() {
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userPassword'); // Clearing the password
     this.router.navigate(['']);
   }
 
@@ -26,6 +40,10 @@ export class HeaderComponent implements OnInit {
 
   dashboard() {
     this.router.navigate(['dashboard']);
+  }
+
+  admin() {
+    this.router.navigate(['admin'])
   }
 
 }
