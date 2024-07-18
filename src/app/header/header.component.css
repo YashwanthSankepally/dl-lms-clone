@@ -2,6 +2,7 @@
     background-color: #ffffff;
     box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
     height: 4.375rem;
+    width: 100vw;
 }
 
 .first-alpha-circle {
