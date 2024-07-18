@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
     this.userEmail = localStorage.getItem('userEmail') || '';
     this.userName = this.userEmail; // Assuming userName is the email for simplicity
     this.firstLetters = this.getUserNameInitials(this.userEmail);
+    this.loadThemePreference();
   }
 
   getUserNameInitials(email: string): string {
@@ -44,6 +45,26 @@ export class HeaderComponent implements OnInit {
 
   admin() {
     this.router.navigate(['admin'])
+  }
+
+  toggleTheme(event: Event) {
+    const isChecked = (event.target as HTMLInputElement).checked;
+    document.body.classList.toggle('dark-mode', isChecked);
+    this.saveThemePreference(isChecked);
+  }
+
+  saveThemePreference(isDarkMode: boolean) {
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+  }
+
+  loadThemePreference() {
+    const theme = localStorage.getItem('theme');
+    const isDarkMode = theme === 'dark';
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    const themeToggle = document.getElementById('flexSwitchCheckDefault') as HTMLInputElement;
+    if (themeToggle) {
+      themeToggle.checked = isDarkMode;
+    }
   }
 
 }

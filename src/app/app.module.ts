@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -21,9 +21,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AdminComponent } from './admin/admin.component';
-import { ChatBotComponent } from './chat-bot/chat-bot.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -36,8 +35,7 @@ import { ChatBotComponent } from './chat-bot/chat-bot.component';
     AngularVideosComponent,
     FundamentalsComponent,
     UpdateProfileComponent,
-    AdminComponent,
-    ChatBotComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +50,8 @@ import { ChatBotComponent } from './chat-bot/chat-bot.component';
     MatTabsModule,
     MatDialogModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    NgxSkeletonLoaderModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

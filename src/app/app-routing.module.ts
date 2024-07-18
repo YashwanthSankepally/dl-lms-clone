@@ -8,7 +8,6 @@ import { AngularVideosComponent } from './angular-videos/angular-videos.componen
 import { FundamentalsComponent } from './fundamentals/fundamentals.component';
 import { UpdateProfileComponent } from './update-profile/update-profile.component';
 import { AdminComponent } from './admin/admin.component';
-import { ChatBotComponent } from './chat-bot/chat-bot.component';
 
 
 const routes: Routes = [
@@ -19,8 +18,7 @@ const routes: Routes = [
   {path: 'angular-videos', component: AngularVideosComponent},
   {path: 'fundamentals', component: FundamentalsComponent},
   {path: 'update-profile', component: UpdateProfileComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: 'chatbot', component: ChatBotComponent}
+  {path: 'admin', component: AdminComponent}
 ];
 
 @NgModule({

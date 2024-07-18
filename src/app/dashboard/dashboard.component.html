@@ -8,21 +8,27 @@
         <h1 style="position: sticky; right: 79%;">Your Courses</h1>
 
         <!-- web development basics card starts here -->
-        <div class="card mb-3" style="max-width: 80%;">
-          <div class="row g-0">
-            <div class="col-md-3">
-              <img style="max-height: 200px; max-width: 200px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyj1VP2DIBFtSZ1IS2Nt_G2Emkl6aE7VDNVci7pYdIrOes00A7UwUzW8ZPlHT9tcrS3WM&usqp=CAU" class="img-fluid rounded-start" alt="angular-2401 7 AM">
+        <ngx-skeleton-loader
+        *ngIf="!contentLoaded"
+        animation="progress"
+        appearance="line"
+        [theme]="{ width: '80px', height: '80px' }"
+        ></ngx-skeleton-loader>
+        <div class="card mb-3" style="max-width: 80%;" *ngIf="contentLoaded">
+          <div class="row">
+            <div class="col-md-3" *ngIf="contentLoaded">
+              <img style="max-height: 200px; max-width: 200px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyj1VP2DIBFtSZ1IS2Nt_G2Emkl6aE7VDNVci7pYdIrOes00A7UwUzW8ZPlHT9tcrS3WM&usqp=CAU" class="img-fluid rounded-start" alt="HTML CSS JS logo image">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" *ngIf="contentLoaded">
               <div class="card-body">
                 <h2 style="font-size:1.25rem;" class="card-title">Fundamentals</h2>
                 <p class="card-text">Web development relies on HTML for structure, CSS for styling, and JavaScript (JS) for interactivity. TypeScript (TS) enhances JS with static typing and advanced tooling.</p>
                 <a class="card-text" href="https://youtube.com/playlist?list=PLzdWZT-ZJD09_3tZhnl7AGCb3U3CTBfoQ&si=oflupJ7Mlw3Vw3U0" target="_blank"><small class="text-body-secondary">CS World Telugu</small></a>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-3" *ngIf="contentLoaded">
               <div class="card-body lms-btn-card">
-                  <button class="btn btn-primary m-1" (click)="fundamentals()" aria-label="Continue to fundamentals (HTML, CSS and JS) page"> Continue <span><i class="bi bi-arrow-right"></i></span> </button>
+                  <button class="btn btn-primary m-1" (click)="fundamentals()"> Continue <span><i class="bi bi-arrow-right"></i></span> </button>
                   <button class="btn btn-outline-dark m-1" disabled="disabled">Live Classes</button>
               </div>
             </div>
@@ -31,21 +37,21 @@
       <!-- web development basics card ends here --> 
 
         <!-- angular card starts here -->
-        <div class="card mb-3" style="max-width: 80%;">
-            <div class="row g-0">
-              <div class="col-md-3">
-                <img style="max-height: 200px; max-width: 200px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png" class="img-fluid rounded-start" alt="angular-2401 7 AM">
+        <div class="card mb-3" style="max-width: 80%;" *ngIf="contentLoaded">
+            <div class="row">
+              <div class="col-md-3" *ngIf="contentLoaded">
+                <img style="max-height: 200px; max-width: 200px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/2048px-Angular_full_color_logo.svg.png" class="img-fluid rounded-start" alt="Angular logo image">
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6" *ngIf="contentLoaded">
                 <div class="card-body">
                   <h2 style="font-size:1.25rem;" class="card-title">Angular Classes</h2>
                   <p class="card-text">Angular, a Google-maintained JavaScript framework, streamlines web app development with features like two-way data binding and component-based architecture.</p>
                   <a class="card-text" href="https://youtube.com/playlist?list=PLzdWZT-ZJD08nIY0WPevCXLZWR310EMWX&si=fz4tp9N2RE0ZHi4V" target="_blank"><small class="text-body-secondary">CS World Telugu</small></a>
                 </div>
               </div>
-              <div class="col-md-3">
+              <div class="col-md-3" *ngIf="contentLoaded">
                 <div class="card-body lms-btn-card">
-                    <button class="btn btn-primary m-1" (click)="angularVideos()" aria-label="Go to Angular class component"> Continue <span><i class="bi bi-arrow-right"></i></span> </button>
+                    <button class="btn btn-primary m-1" (click)="angularVideos()"> Continue <span><i class="bi bi-arrow-right"></i></span> </button>
                     <button class="btn btn-outline-dark m-1" disabled="disabled">Live Classes</button>
                 </div>
               </div>

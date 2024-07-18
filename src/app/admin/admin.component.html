@@ -1,1 +1,112 @@
 <app-header></app-header>
+
+<section class="lms-admin-section">
+    <div class="lms-sidebar-container">
+        <div class="courses-and-users" style="max-width: 300px;">
+
+            <div>
+                <div class="action-container lms-g-cp" role="button" (click)="courses()" [tabindex]="0"
+                (keydown.enter)="courses()">
+                    Courses 
+                    <div class="add-btn" (click)="addCourse($event)" role="button" [tabindex]="0">Add+</div> 
+                </div>
+                <div class="action-container lms-g-cp py-1" [tabindex]="0" role="button" (click)="addUsers()"
+                (keydown.enter)="addUsers()">Users</div>
+            </div>
+
+            <div class="courses-list ms-1" *ngIf="displayCourses">
+                <input type="search" (input)="filterCourses($any($event.target).value)" placeholder="Search courses">
+                <div class="lms-list-group">
+                    <ul class="list-group">
+                        <li class="list-group-item lms-g-cp lms-link-color" 
+                            style="width: 167px !important;" 
+                            *ngFor="let item of coursesArray" 
+                            [hidden]="!item.courseName.toLowerCase().includes(searchTerm.toLowerCase())"
+                            (click)="selectCourse(item)" 
+                            (keydown.enter)="selectCourse(item)"
+                            [tabindex]="0">
+                            {{item.courseName}}
+                        </li>
+                    </ul>
+                    <div class="lms-mat-tabs" *ngIf="selectedCourse">
+                        <mat-tab-group>
+                            <mat-tab *ngFor="let tab of selectedCourse.courseTabs | keyvalue" label="{{tab.value}}">
+                                <ng-template matTabContent>
+                                    <div *ngIf="tab.value === 'Course Info'" class="lms-course-info">
+                                        <span>
+                                            <strong>Name:</strong> {{selectedCourse.courseName}}
+                                        </span>
+                                        <p> <strong>Description:</strong> {{selectedCourse.tutor}}  </p>
+                                        <p> <strong>Modules:</strong> {{selectedCourse.Modules}} </p>
+
+                                        <div class="input-container">
+                                            <input type="text" [(ngModel)]="selectedCourse.formInput">
+                                            <button class="lms-save-link" (click)="saveLink()"
+                                            (keydown.enter)="saveLink()">Save</button>
+                                        </div>
+                                        <p *ngIf="errorMessage" class="lms-error-message">{{errorMessage}}</p>
+
+                                        <div class="mt-2">
+                                            <button class="btn btn-warning"> <i class="fa-solid fa-box-archive me-2"></i> Archive</button>
+                                        </div>
+
+                                        <div class="saved-videos-urls">
+                                            <div>
+                                                <a href="{{youTubeUrl}}" target="_blank"> {{youTubeUrl}} </a>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div *ngIf="tab.value === 'Modules'" class="lms-modules">
+                                        <span>
+                                            Modules content for {{selectedCourse.courseName}}.
+                                        </span>
+                                    </div>
+                                    <div *ngIf="tab.value === 'Projects'" class="lms-projects">
+                                        <span>
+                                            Projects content for {{selectedCourse.courseName}}.
+                                        </span>
+                                    </div>
+                                    <div *ngIf="tab.value === 'Resources'" class="lms-resources">
+                                        <span>
+                                            Resources content for {{selectedCourse.courseName}}.
+                                        </span>
+                                    </div>
+                                    <div *ngIf="tab.value === 'Enrolled'" class="lms-enrolled">
+                                        <span>
+                                            Enrolled students content for {{selectedCourse.courseName}}.
+                                        </span>
+                                    </div>
+                                    <div *ngIf="tab.value === 'Resume'" class="lms-resume">
+                                        <span>
+                                            Resume content for {{selectedCourse.courseName}}.
+                                        </span>
+                                    </div>
+                                </ng-template>
+                            </mat-tab>
+                        </mat-tab-group>                          
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="displayUsers" class="users-list">
+                <div class="users-form ms-auto">
+                    <h1>Import Users</h1>
+
+                    <div>
+                        <p>Upload Users file</p>
+                        <input type="file">
+                        <button>Upload</button>
+                    </div>
+
+                    <div>
+                        <p>Find User Information</p>
+                        <input type="text">
+                        <button>Find User</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
